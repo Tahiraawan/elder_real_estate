@@ -1,11 +1,9 @@
-import Layout from '../pages/components/Layout'
+import Layout from '../pages/src/components/Layout'
 
 export default function Home() {
   return (
-    <>
-     <Layout>
-      tahira
-     </Layout>
-    </>
+   <Layout>
+    
+   </Layout>
   )
 }
