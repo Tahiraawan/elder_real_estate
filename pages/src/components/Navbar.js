@@ -1,16 +1,37 @@
 import React from "react";
+import { useState,useEffect } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
+  const [nav, setNav] = useState(false)
+
+useEffect(() => {
+  function handleScroll(){
+    if(window.scrollY>10){
+      setNav(true)
+    }
+    else{
+      setNav(false)
+    }
+  }
+  
+window.addEventListener("scroll",handleScroll)
+  return () => {
+   window.removeEventListener("scroll",handleScroll) 
+  }
+}, [])
+
+  
   return (
-    <nav className="flex justify-between px-28 py-7 bg-gray-400 font-bold text-white">
-      <div>
+   <div className="fixed w-full z-40 " >
+     <div className={`flex justify-between px-28 py-7 ${nav?"bg-white":"bg-transparent"} font-bold ${nav? "text-[#6E6699]":"text-white"}`}>
+      <div className="">
         <Link href="/">logo</Link>
       </div>
-      <div>
+      <div className={``}>
         <ul className="flex md:space-x-[45px] ">
           <Link href="/">
-            <li className="cursor-pointer">HOME</li>
+            <li className={`cursor-pointer `}>HOME</li>
           </Link>
           <Link href="/about">
             <li className="cursor-pointer">ABOUT</li>
@@ -20,7 +41,8 @@ const Navbar = () => {
           <li className="cursor-pointer">CONTACT</li>
         </ul>
       </div>
-    </nav>
+    </div>
+   </div>
   );
 };
 
