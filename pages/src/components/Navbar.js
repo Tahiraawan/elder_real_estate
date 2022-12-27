@@ -23,12 +23,13 @@ window.addEventListener("scroll",handleScroll)
 
   
   return (
-   <div className="fixed w-full z-40 " >
-     <div className={`flex justify-between px-28 py-7 ${nav?"bg-white":"bg-transparent"} font-bold ${nav? "text-[#6E6699]":"text-white"}`}>
+   <div className="fixed w-full z-40">
+     <div className={`flex justify-between px-28 py-7 ${nav?"bg-white":"bg-transparent"} font-bold 
+     ${nav? "text-[#6E6699]":"text-white"}`}>
       <div className="">
         <Link href="/">logo</Link>
       </div>
-      <div className={``}>
+      <div>
         <ul className="flex md:space-x-[45px] ">
           <Link href="/">
             <li className={`cursor-pointer `}>HOME</li>
